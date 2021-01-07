@@ -1,0 +1,53 @@
+body {
+  box-sizing: border-box;
+}
+
+.form-professor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1em auto;
+  width: 900px;
+}
+
+.form-professor h1 {
+  text-transform: uppercase;
+}
+
+.check-grup {
+  border: 1px solid #000000;
+  margin: 0px 10px 10px 10px;
+  width: 100%;
+}
+
+.check-grup h2 {
+  font-size: 16px;
+  padding: 0px 10px;
+}
+.checkbox-professor {
+  display: flex;
+  align-items: center;
+}
+
+.form-professor input {
+  height: 30px;
+  margin: 10px 5px 10px 10px;
+  border-radius: 4px;
+}
+.form-professor select {
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.form-professor label {
+  margin: 10px 0px 10px 5px;
+  font-weight: 600;
+}
+
+.label-professor {
+  font-size: 20px;
+}
