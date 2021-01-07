@@ -1,0 +1,14 @@
+button {
+  margin: 10px;
+  width: 140px;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s background-color ease-in;
+}
+
+button:hover {
+  background-color: #be3144;
+  color: beige;
+}
