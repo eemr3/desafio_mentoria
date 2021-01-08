@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Button from '../../components/Button'
+import Button from '../../components/button/Button'
 import './AlunoTurma.css'
 
 const turmas = [

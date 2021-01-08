@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './Matricula.css'
 
-import Button from '../../components/Button'
+import Button from '../../components/button/Button'
 
 const MatriculaAluno = () => {
   const [values, setValues] = useState([])
