@@ -46,22 +46,22 @@ const alunos = [
 ]
 
 function AlunoTurma() {
-  const [turma, setTurma] = useState('')
-  const [aluno, setAluno] = useState('')
+  const [infoTurma, setInfoTurma] = useState('')
+  const [infoAluno, setInfoAluno] = useState('')
   const [values, setValues] = useState([])
 
   function handleSubmit(event) {
     event.preventDefault()
-    if (turma.trim() || aluno.trim()) {
-      setValues([...values, { turma: turma, aluno: aluno }])
+    if (infoTurma.trim() || infoAluno.trim()) {
+      setValues([...values, { turma: infoTurma, aluno: infoAluno }])
 
       clearSelect()
     }
   }
-
+  console.log(values)
   function clearSelect() {
-    setTurma('')
-    setAluno('')
+    setInfoTurma('')
+    setInfoAluno('')
   }
 
   console.log(values)
@@ -72,8 +72,8 @@ function AlunoTurma() {
         <label htmlFor="">Selecione a Turma</label>
         <select
           className="select-form"
-          value={turma}
-          onChange={(e) => setTurma(e.target.value)}
+          value={infoTurma}
+          onChange={(e) => setInfoTurma(e.target.value)}
           data-testid="select-turma"
         >
           <option value="0">Selecione uma Turma</option>
@@ -86,8 +86,8 @@ function AlunoTurma() {
         <label htmlFor="">Selecione o Aluno</label>
         <select
           className="select-form"
-          value={aluno}
-          onChange={(e) => setAluno(e.target.value)}
+          value={infoAluno}
+          onChange={(e) => setInfoAluno(e.target.value)}
           data-testid="select-aluno"
         >
           <option value="0">Selecione um Aluno</option>
@@ -105,9 +105,9 @@ function AlunoTurma() {
       </form>
 
       <div className="list-container">
-        <ul className="list-cards">
+        <ul>
           {values.map((item, index) => (
-            <li key={index} data-testid="lodo-list">
+            <li key={index} data-testid="todo-list">
               <div className="list-turma">
                 <span>{item.turma}</span>
                 <p>{item.aluno}</p>
