@@ -51,3 +51,21 @@ body {
 .label-professor {
   font-size: 20px;
 }
+
+.list-containerProfessor {
+  width: 100%;
+}
+
+.list-cardsProfessor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  max-width: 800px;
+  grid-gap: 2.09rem;
+  width: 100%;
+  margin-left: 20px;
+}
+.list-turmaProfessor {
+  background: #be3144;
+  padding: 20px;
+  color: white;
+}
