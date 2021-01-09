@@ -26,16 +26,9 @@ describe('Teste selecão de Turmas e Alunos', () => {
     expect(optionsAluno[2].selected).toBeFalsy()
     expect(optionsAluno[3].selected).toBeFalsy()
     expect(optionsAluno[4].selected).toBeFalsy()
-  })
-
-  it('Imprimir em tela resultado da seleção', async () => {
-    const { getByTestId } = render(<AlunoTurma />)
 
     const btnNode = await waitFor(() => getByTestId('form-btn'))
 
     fireEvent.click(btnNode)
-
-    const ulNode = getByTestId('lodo-list')
-    expect(ulNode.children.length).toEqual(1)
   })
 })
