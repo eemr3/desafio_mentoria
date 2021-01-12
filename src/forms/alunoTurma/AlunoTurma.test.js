@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 
 import AlunoTurma from './AlunoTurma'
 
@@ -26,9 +26,5 @@ describe('Teste selecão de Turmas e Alunos', () => {
     expect(optionsAluno[2].selected).toBeFalsy()
     expect(optionsAluno[3].selected).toBeFalsy()
     expect(optionsAluno[4].selected).toBeFalsy()
-
-    const btnNode = await waitFor(() => getByTestId('form-btn'))
-
-    fireEvent.click(btnNode)
   })
 })

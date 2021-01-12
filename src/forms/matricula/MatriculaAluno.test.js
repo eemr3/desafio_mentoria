@@ -21,7 +21,6 @@ describe('Teste para formulário cadastro de aluno', () => {
     expect(fieldNodeEnd.value).toEqual(address)
 
     const btnNode = await waitFor(() => getByTestId('form-btn'))
-
     fireEvent.click(btnNode)
 
     const tdNameNode = await waitFor(() => getByText(name))

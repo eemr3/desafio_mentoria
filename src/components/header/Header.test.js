@@ -8,18 +8,20 @@ import '@testing-library/jest-dom/extend-expect'
 
 import Header from './Header'
 
-it('navigate form Aluno/Turma', () => {
-  const history = createMemoryHistory()
-  render(
-    <Router history={history}>
-      <Header />
-    </Router>
-  )
+describe('Header', () => {
+  it('full app rendering', () => {
+    const history = createMemoryHistory()
+    render(
+      <Router history={history}>
+        <Header />
+      </Router>
+    )
 
-  expect(screen.getByText(/Desenvolvendo-ME/i)).toBeInTheDocument()
+    expect(screen.getByText(/Desenvolvendo-ME/i)).toBeInTheDocument()
 
-  const leftClick = { button: 0 }
-  userEvent.click(screen.getByText(/Matricula/i), leftClick)
+    const leftClick = { button: 0 }
+    userEvent.click(screen.getByText(/Matricula/i), leftClick)
 
-  expect(screen.getByText(/Desenvolvendo-ME/i)).toBeInTheDocument()
+    expect(screen.getByText(/Desenvolvendo-ME/i)).toBeInTheDocument()
+  })
 })

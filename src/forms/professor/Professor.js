@@ -88,9 +88,14 @@ function Professor() {
         <div className="check-grup">
           <h2>Slecione quais Turmas</h2>
           {turmas.map((item) => (
-            <div className="checkbox-professor" key={item.id}>
+            <div
+              className="checkbox-professor"
+              key={item.id}
+              data-testid="checkbox_id"
+            >
               <input
                 name={item.turma}
+                id={item.turma}
                 type="checkbox"
                 checked={infoTurma[item.turma] || false}
                 onChange={(e) =>
@@ -100,7 +105,7 @@ function Professor() {
                   })
                 }
               />
-              <label htmlFor="">{item.turma}</label>
+              <label htmlFor={item.turma}>{item.turma}</label>
             </div>
           ))}
         </div>

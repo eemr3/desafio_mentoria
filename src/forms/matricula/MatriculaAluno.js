@@ -29,7 +29,7 @@ const MatriculaAluno = () => {
 
   return (
     <div className="form-matricula">
-      <h1>Formulário matrícula do aluno</h1>
+      <h1>Home page</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Matrícula</label>
         <input type="text" name="matricula" value={matricula} disabled />
