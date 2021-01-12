@@ -29,7 +29,7 @@ Realizar tarefa solicitada pelo mentor Marco Castro, assim adquirindo conhecimen
 ## :link: Start Projeto 
 
 - Clone esse repositório
-- yarn ou npm install
+- yarn ↵, ou npm install ↵
 - yarn start ou npm start: Para startar o projeto na porta localhost:3000
 - yarn test ou npm test: Para o teste
 
