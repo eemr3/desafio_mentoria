@@ -20,7 +20,7 @@ describe('Header', () => {
     expect(screen.getByText(/Desenvolvendo-ME/i)).toBeInTheDocument()
 
     const leftClick = { button: 0 }
-    userEvent.click(screen.getByText(/Matricula/i), leftClick)
+    userEvent.click(screen.getByText(/Matrícula/i), leftClick)
 
     expect(screen.getByText(/Desenvolvendo-ME/i)).toBeInTheDocument()
   })

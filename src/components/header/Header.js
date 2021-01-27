@@ -9,14 +9,14 @@ function Header() {
       <h1>Desenvolvendo-ME</h1>
       <ul className="nav-list">
         <li>
-          <Link to="/">Formulário Matricula</Link>
+          <Link to="/">Matrículas</Link>
         </li>
         <li id="nav-logo-home">
-          <Link to="/alunoturma">Formulário Aluno/Turma</Link>
+          <Link to="/alunoturma">Turmas</Link>
         </li>
         <li>
           <Link to="/professor" data-testid="form-professor-link">
-            Formulário Professor
+            Professores
           </Link>
         </li>
       </ul>

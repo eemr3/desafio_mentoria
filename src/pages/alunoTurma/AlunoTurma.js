@@ -58,17 +58,16 @@ function AlunoTurma() {
       clearSelect()
     }
   }
-  console.log(values)
+
   function clearSelect() {
     setInfoTurma('')
     setInfoAluno('')
   }
 
-  console.log(values)
   return (
-    <div className="form-aluno">
-      <h1>Formulário de cadastro de Turmas</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="container-form-turma">
+      <h1>Cadastro de Turmas</h1>
+      <form onSubmit={handleSubmit} className="form-turma">
         <label htmlFor="">Selecione a Turma</label>
         <select
           className="select-form"
@@ -101,11 +100,11 @@ function AlunoTurma() {
             </option>
           ))}
         </select>
-        <Button text="Cadastra Aluno" />
+        <Button text="Enviar" />
       </form>
 
-      <div className="list-container">
-        <ul>
+      <div className="list-container-turma">
+        <ul className="list-cards-turma">
           {values.map((item, index) => (
             <li key={index} data-testid="todo-list">
               <div className="list-turma">

@@ -1,7 +1,3 @@
-body {
-  box-sizing: border-box;
-}
-
 .form-matricula {
   display: flex;
   flex-direction: column;
@@ -21,6 +17,9 @@ body {
   height: 30px;
   margin: 10px;
   border-radius: 4px;
+  padding-left: 7px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .form-matricula label {
@@ -60,4 +59,33 @@ body {
   text-align: left;
   background-color: #be3144;
   color: white;
+}
+
+.matricula__span-aviso {
+  width: 100%;
+}
+.matricula__span-aviso span {
+  margin-left: 10px;
+  color: orangered;
+  text-align: left;
+}
+
+@media (max-width: 840px) {
+  .form-matricula {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1em auto;
+    width: 80%;
+  }
+
+  .table-form {
+    width: 100%;
+  }
+
+  .form-matricula h1 {
+    font-size: 1.8rem;
+  }
 }

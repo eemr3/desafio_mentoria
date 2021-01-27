@@ -1,0 +1,69 @@
+.container-form-turma {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1em auto;
+  width: 900px;
+}
+
+.container-form-turma h1 {
+  text-transform: uppercase;
+}
+
+.container-form-turma input {
+  height: 30px;
+  margin: 10px 5px 10px 10px;
+  border-radius: 4px;
+}
+.container-form-turma select {
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.container-form-turma label {
+  margin: 10px 0px 10px 5px;
+  font-weight: 600;
+}
+
+.list-cards-turma {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  max-width: 800px;
+  gap: 2.09rem;
+}
+
+.list-turma {
+  background: #be3144;
+  padding: 20px;
+  color: white;
+}
+
+@media (max-width: 840px) {
+  .container-form-turma {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 1em auto;
+  }
+
+  .list-container-turma {
+    width: 100%;
+  }
+  .list-cards-turma {
+    display: grid;
+    grid-template-columns: minmax(230px, 1fr);
+    max-width: 800px;
+    gap: 2.09rem;
+    margin-left: 11px;
+    padding: 0px;
+  }
+  .form-turma {
+    width: 95%;
+  }
+}

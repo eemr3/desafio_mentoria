@@ -63,7 +63,7 @@ function Professor() {
 
   return (
     <div className="form-professor">
-      <h1>Formulário de cadastro de Professores</h1>
+      <h1>Cadastro de Professores</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="" className="label-professor">
           Professor
@@ -110,7 +110,7 @@ function Professor() {
           ))}
         </div>
 
-        <Button text="Cadastra Professor" />
+        <Button text="Enviar" />
       </form>
 
       <div className="list-containerProfessor">
@@ -119,7 +119,7 @@ function Professor() {
             <li key={index} data-testid="todo-listProfessor">
               <div className="list-turmaProfessor">
                 <p>{item.nome}</p>
-                <span>{Object.keys(item.turma).join(', ')}</span>
+                <p>{Object.keys(item.turma).join(', ')}</p>
               </div>
             </li>
           ))}

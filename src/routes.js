@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import MatriculaAuno from './forms/matricula/MatriculaAluno'
-import AlunoTurma from './forms/alunoTurma/AlunoTurma'
-import Professor from './forms/professor/Professor'
+import MatriculaAuno from './pages/matricula/MatriculaAluno'
+import AlunoTurma from './pages/alunoTurma/AlunoTurma'
+import Professor from './pages/professor/Professor'
 
 function routes() {
   return (
