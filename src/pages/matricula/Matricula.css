@@ -61,10 +61,10 @@
   color: white;
 }
 
-.matricula__span-aviso {
+.matricula-span-aviso {
   width: 100%;
 }
-.matricula__span-aviso span {
+.matricula-span-aviso span {
   margin-left: 10px;
   color: orangered;
   text-align: left;

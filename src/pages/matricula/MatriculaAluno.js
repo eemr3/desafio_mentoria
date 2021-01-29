@@ -1,54 +1,59 @@
 import React, { useState, useRef } from 'react'
 
-// import Form from '../../components/form'
 import Button from '../../components/button/Button'
 import './Matricula.css'
 
-const initialValeus = [
+const ValoresIniciais = [
   {
-    name: '',
-    address: '',
+    nome: '',
+    endereco: '',
   },
 ]
 
 const MatriculaAluno = () => {
-  const [values, setValues] = useState(initialValeus)
-  const [registration, setRegistration] = useState(10000)
-  const [name, setName] = useState('')
-  const [address, setAddress] = useState('')
+  const [valores, setValores] = useState(ValoresIniciais)
+  const [matricula, setMatricula] = useState(10000)
+  const [nome, setNome] = useState('')
+  const [endereco, setEndereco] = useState('')
   const inputRef = useRef()
 
-  function handleSubmit(event) {
+  function enviar(event) {
     event.preventDefault()
 
-    if (!name.trim() || !address.trim()) {
+    if (!nome.trim() || !endereco.trim()) {
       return alert('Campos Nome do aluno e Endereço, são obrigatórios')
     }
 
-    setValues([
-      ...values,
-      { name: name, address: address, registration: registration },
+    const resgatarNomes = valores.map((item) => {
+      return item.nome
+    })
+
+    for (let i = 0; i < valores.length; i++) {
+      if (resgatarNomes[i] === nome) {
+        return alert('Aluno já cadastrado!')
+      }
+    }
+
+    setValores([
+      ...valores,
+      { nome: nome, endereco: endereco, matricula: matricula },
     ])
-    setRegistration(registration + 1)
-    clearInput()
+    setMatricula(matricula + 1)
+    limparInput()
   }
 
-  function clearInput() {
-    setName('')
-    setAddress('')
+  function limparInput() {
+    setNome('')
+    setEndereco('')
     inputRef.current.focus()
-  }
-
-  function handleChange(event) {
-    setName(event.target.value)
   }
 
   return (
     <div className="form-matricula">
       <h1>Matrículas dos alunos</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={enviar}>
         <label htmlFor="">Matrícula</label>
-        <input type="text" name="matricula" value={registration} disabled />
+        <input type="text" name="matricula" value={matricula} disabled />
 
         <label htmlFor="nomeAluno">Nome aluno *</label>
         <input
@@ -57,8 +62,8 @@ const MatriculaAluno = () => {
           data-testid="form-field"
           placeholder="Nome completo"
           name="nome"
-          value={name}
-          onChange={handleChange}
+          value={nome}
+          onChange={(event) => setNome(event.target.value)}
           ref={inputRef}
         />
 
@@ -67,15 +72,15 @@ const MatriculaAluno = () => {
           id="endereco"
           data-testid="form-end"
           type="text"
-          value={address}
+          value={endereco}
           name="endereco"
           placeholder="Endereço completo"
-          onChange={(e) => setAddress(e.target.value)}
+          onChange={(e) => setEndereco(e.target.value)}
         />
 
-        <Button text="Enviar" />
+        <Button texto="Enviar" />
       </form>
-      <div className="matricula__span-aviso">
+      <div className="matricula-span-aviso">
         <span>Campos com o * são obrigatório!</span>
       </div>
       <div className="table-form">
@@ -88,17 +93,73 @@ const MatriculaAluno = () => {
             </tr>
           </thead>
           <tbody>
-            {values.map((t, index) => (
+            {valores.map((item, index) => (
               <tr key={index}>
-                <td>{t.registration}</td>
-                <td>{t.name}</td>
-                <td>{t.address}</td>
+                <td>{item.matricula}</td>
+                <td>{item.nome}</td>
+                <td>{item.endereco}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </div>
+
+    // <div className="form-matricula">
+    //   <h1>Matrículas dos alunos</h1>
+    //   <form onSubmit={evinar}>
+    //     <label htmlFor="">Matrícula</label>
+    //     <input type="text" name="matricula" value={matricula} disabled />
+
+    //     <label htmlFor="nomeAluno">Nome aluno *</label>
+    //     <input
+    //       type="text"
+    //       id="nomeAluno"
+    //       data-testid="form-field"
+    //       placeholder="Nome completo"
+    //       name="nome"
+    //       value={nome}
+    //       onChange={(event) => setNome(event.target.value)}
+    //       ref={inputRef}
+    //     />
+
+    //     <label htmlFor="endereco">Endereço *</label>
+    //     <input
+    //       id="endereco"
+    //       data-testid="form-end"
+    //       type="text"
+    //       value={endereco}
+    //       name="endereco"
+    //       placeholder="Endereço completo"
+    //       onChange={(e) => setEndereco(e.target.value)}
+    //     />
+
+    //     <Button texto="Enviar" />
+    //   </form>
+    //   <div className="matricula-span-aviso">
+    //     <span>Campos com o * são obrigatório!</span>
+    //   </div>
+    //   <div className="table-form">
+    //     <table data-testid="table" className="table-aluno">
+    //       <thead>
+    //         <tr>
+    //           <th>Matrícula</th>
+    //           <th>Nome Aluno</th>
+    //           <th>Endereço</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         {valores.map((item, index) => (
+    //           <tr key={index}>
+    //             <td>{item.matricula}</td>
+    //             <td>{item.nome}</td>
+    //             <td>{item.endereco}</td>
+    //           </tr>
+    //         ))}
+    //       </tbody>
+    //     </table>
+    //   </div>
+    // </div>
   )
 }
 

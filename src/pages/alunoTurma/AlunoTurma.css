@@ -67,3 +67,10 @@
     width: 95%;
   }
 }
+
+.turma__span-aviso {
+  color: orangered;
+  text-align: left;
+  width: 92%;
+  margin: 7px 0;
+}

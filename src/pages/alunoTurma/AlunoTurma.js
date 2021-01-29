@@ -48,15 +48,25 @@ const alunos = [
 function AlunoTurma() {
   const [infoTurma, setInfoTurma] = useState('')
   const [infoAluno, setInfoAluno] = useState('')
-  const [values, setValues] = useState([])
+  const [valores, setValores] = useState([])
 
   function handleSubmit(event) {
     event.preventDefault()
-    if (infoTurma.trim() || infoAluno.trim()) {
-      setValues([...values, { turma: infoTurma, aluno: infoAluno }])
-
-      clearSelect()
+    if (!infoTurma.trim() || !infoAluno.trim()) {
+      return alert('Campos: Turma e Aluno são obrigatóris')
     }
+
+    const resgatandoAlunos = valores.map((item) => {
+      return item.aluno
+    })
+
+    for (let i = 0; i < valores.length; i++) {
+      if (resgatandoAlunos[i] === infoAluno) {
+        return alert('Aluno já matriculado em uma turma!')
+      }
+    }
+    setValores([...valores, { turma: infoTurma, aluno: infoAluno }])
+    clearSelect()
   }
 
   function clearSelect() {
@@ -68,28 +78,32 @@ function AlunoTurma() {
     <div className="container-form-turma">
       <h1>Cadastro de Turmas</h1>
       <form onSubmit={handleSubmit} className="form-turma">
-        <label htmlFor="">Selecione a Turma</label>
+        <label htmlFor="">Selecione a Turma *</label>
         <select
           className="select-form"
           value={infoTurma}
           onChange={(e) => setInfoTurma(e.target.value)}
           data-testid="select-turma"
         >
-          <option value="0">Selecione uma Turma</option>
+          <option value="" hidden>
+            Selecione uma Turma
+          </option>
           {turmas.map((item) => (
             <option value={item.turma} key={item.id} data-testid="form-turma">
               {item.turma}
             </option>
           ))}
         </select>
-        <label htmlFor="">Selecione o Aluno</label>
+        <label htmlFor="">Selecione o Aluno *</label>
         <select
           className="select-form"
           value={infoAluno}
           onChange={(e) => setInfoAluno(e.target.value)}
           data-testid="select-aluno"
         >
-          <option value="0">Selecione um Aluno</option>
+          <option value="" hidden>
+            Selecione um Aluno
+          </option>
           {alunos.map((aluno) => (
             <option
               value={aluno.nome}
@@ -100,12 +114,14 @@ function AlunoTurma() {
             </option>
           ))}
         </select>
-        <Button text="Enviar" />
+        <Button texto="Enviar" />
       </form>
-
+      <div className="turma__span-aviso">
+        <span>Campos com o * são obrigatório!</span>
+      </div>
       <div className="list-container-turma">
         <ul className="list-cards-turma">
-          {values.map((item, index) => (
+          {valores.map((item, index) => (
             <li key={index} data-testid="todo-list">
               <div className="list-turma">
                 <span>{item.turma}</span>

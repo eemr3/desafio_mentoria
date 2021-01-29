@@ -43,17 +43,30 @@ const turmas = [
 
 function Professor() {
   const [infoProf, setInfoProf] = useState('')
-  const [infoTurma, setInfoTurma] = useState({})
-  const [values, setValues] = useState([])
+  const [infoTurma, setInfoTurma] = useState([])
+  const [valores, setValores] = useState([])
 
   function handleSubmit(event) {
     event.preventDefault()
-
-    if (infoProf.trim()) {
-      setValues([...values, { nome: infoProf, turma: infoTurma }])
-
-      clearChange()
+    if (!infoProf.trim()) {
+      alert('Obrigatório a escolha de um professor!')
+      return
     }
+    if (infoTurma.length === 0) {
+      alert('Obrigatório a escolha da turmas!')
+      return
+    }
+    const resgatandoProfessor = valores.map((item) => {
+      return item.nome
+    })
+
+    for (let i = 0; i < valores.length; i++) {
+      if (resgatandoProfessor[i] === infoProf) {
+        return alert('Professor com turmas definidas!')
+      }
+    }
+    setValores([...valores, { nome: infoProf, turma: [...infoTurma] }])
+    clearChange()
   }
 
   function clearChange() {
@@ -74,7 +87,9 @@ function Professor() {
           onChange={(e) => setInfoProf(e.target.value)}
           data-testid="select-professor"
         >
-          <option value="0">Selecione um Professor</option>
+          <option value="" hidden>
+            Selecione um Professor
+          </option>
           {professores.map((professor) => (
             <option
               value={professor.nome}
@@ -97,29 +112,32 @@ function Professor() {
                 name={item.turma}
                 id={item.turma}
                 type="checkbox"
-                checked={infoTurma[item.turma] || false}
-                onChange={(e) =>
-                  setInfoTurma({
-                    ...infoTurma,
-                    [e.target.name]: e.target.checked,
-                  })
-                }
+                checked={infoTurma.includes(item.turma)}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    // add
+                    setInfoTurma([...infoTurma, e.target.name])
+                  } else {
+                    // delete
+                    setInfoTurma(infoTurma.filter((x) => x !== e.target.name))
+                  }
+                }}
               />
               <label htmlFor={item.turma}>{item.turma}</label>
             </div>
           ))}
         </div>
 
-        <Button text="Enviar" />
+        <Button texto="Enviar" />
       </form>
 
       <div className="list-containerProfessor">
         <ul className="list-cardsProfessor">
-          {values.map((item, index) => (
+          {valores.map((item, index) => (
             <li key={index} data-testid="todo-listProfessor">
               <div className="list-turmaProfessor">
                 <p>{item.nome}</p>
-                <p>{Object.keys(item.turma).join(', ')}</p>
+                <p>{item.turma.join(', ')}</p>
               </div>
             </li>
           ))}

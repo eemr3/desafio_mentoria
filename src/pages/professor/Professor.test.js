@@ -10,13 +10,13 @@ describe('Teste Formulario cadastro Professor', () => {
     fireEvent.change(getByTestId('select-professor'), {
       target: { value: 3 },
     })
-    const optionsAluno = getAllByTestId('option-professor')
+    const opcaoProfessor = getAllByTestId('option-professor')
 
-    expect(optionsAluno[0].selected).toBeFalsy()
-    expect(optionsAluno[1].selected).toBeFalsy()
-    expect(optionsAluno[2].selected).toBeFalsy()
-    expect(optionsAluno[3].selected).toBeFalsy()
-    expect(optionsAluno[4].selected).toBeFalsy()
+    expect(opcaoProfessor[0].selected).toBeFalsy()
+    expect(opcaoProfessor[1].selected).toBeFalsy()
+    expect(opcaoProfessor[2].selected).toBeFalsy()
+    expect(opcaoProfessor[3].selected).toBeFalsy()
+    expect(opcaoProfessor[4].selected).toBeFalsy()
   })
 
   it('Simulando seleção do checkbox', () => {
