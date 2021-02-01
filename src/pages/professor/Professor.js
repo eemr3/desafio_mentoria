@@ -79,7 +79,7 @@ function Professor() {
       <h1>Cadastro de Professores</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="" className="label-professor">
-          Professor
+          Professor *
         </label>
         <select
           className="select-professor"
@@ -101,7 +101,7 @@ function Professor() {
           ))}
         </select>
         <div className="check-grup">
-          <h2>Slecione quais Turmas</h2>
+          <h2>Slecione quais Turmas *</h2>
           {turmas.map((item) => (
             <div
               className="checkbox-professor"
@@ -129,8 +129,10 @@ function Professor() {
         </div>
 
         <Button texto="Enviar" />
+        <div className="professor-span-aviso">
+          <span>Campos com o * são obrigatório!</span>
+        </div>
       </form>
-
       <div className="list-containerProfessor">
         <ul className="list-cardsProfessor">
           {valores.map((item, index) => (

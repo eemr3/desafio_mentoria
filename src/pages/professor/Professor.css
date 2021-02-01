@@ -81,3 +81,9 @@
     gap: 2.09rem;
   }
 }
+
+.professor-span-aviso span {
+  margin-left: 10px;
+  color: orangered;
+  text-align: left;
+}
