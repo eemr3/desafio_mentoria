@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react'
 
+import Form from '../../components/Form'
 import Button from '../../components/button/Button'
+import Table from '../../components/Table'
 import './Matricula.css'
 
 const ValoresIniciais = [
@@ -51,7 +53,7 @@ const MatriculaAluno = () => {
   return (
     <div className="form-matricula">
       <h1>Matrículas dos alunos</h1>
-      <form onSubmit={enviar}>
+      <Form onSubmit={enviar}>
         <label htmlFor="">Matrícula</label>
         <input type="text" name="matricula" value={matricula} disabled />
 
@@ -77,14 +79,14 @@ const MatriculaAluno = () => {
           placeholder="Endereço completo"
           onChange={(e) => setEndereco(e.target.value)}
         />
-
         <Button texto="Enviar" />
-      </form>
+      </Form>
+
       <div className="matricula-span-aviso">
         <span>Campos com o * são obrigatório!</span>
       </div>
       <div className="table-form">
-        <table data-testid="table" className="table-aluno">
+        <Table data-testid="table" className="table-aluno">
           <thead>
             <tr>
               <th>Matrícula</th>
@@ -101,65 +103,27 @@ const MatriculaAluno = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
+        {/* <table data-testid="table" className="table-aluno">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Nome Aluno</th>
+              <th>Endereço</th>
+            </tr>
+          </thead>
+          <tbody>
+            {valores.map((item, index) => (
+              <tr key={index}>
+                <td>{item.matricula}</td>
+                <td>{item.nome}</td>
+                <td>{item.endereco}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table> */}
       </div>
     </div>
-
-    // <div className="form-matricula">
-    //   <h1>Matrículas dos alunos</h1>
-    //   <form onSubmit={evinar}>
-    //     <label htmlFor="">Matrícula</label>
-    //     <input type="text" name="matricula" value={matricula} disabled />
-
-    //     <label htmlFor="nomeAluno">Nome aluno *</label>
-    //     <input
-    //       type="text"
-    //       id="nomeAluno"
-    //       data-testid="form-field"
-    //       placeholder="Nome completo"
-    //       name="nome"
-    //       value={nome}
-    //       onChange={(event) => setNome(event.target.value)}
-    //       ref={inputRef}
-    //     />
-
-    //     <label htmlFor="endereco">Endereço *</label>
-    //     <input
-    //       id="endereco"
-    //       data-testid="form-end"
-    //       type="text"
-    //       value={endereco}
-    //       name="endereco"
-    //       placeholder="Endereço completo"
-    //       onChange={(e) => setEndereco(e.target.value)}
-    //     />
-
-    //     <Button texto="Enviar" />
-    //   </form>
-    //   <div className="matricula-span-aviso">
-    //     <span>Campos com o * são obrigatório!</span>
-    //   </div>
-    //   <div className="table-form">
-    //     <table data-testid="table" className="table-aluno">
-    //       <thead>
-    //         <tr>
-    //           <th>Matrícula</th>
-    //           <th>Nome Aluno</th>
-    //           <th>Endereço</th>
-    //         </tr>
-    //       </thead>
-    //       <tbody>
-    //         {valores.map((item, index) => (
-    //           <tr key={index}>
-    //             <td>{item.matricula}</td>
-    //             <td>{item.nome}</td>
-    //             <td>{item.endereco}</td>
-    //           </tr>
-    //         ))}
-    //       </tbody>
-    //     </table>
-    //   </div>
-    // </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import Form from '../../components/Form'
 import Button from '../../components/button/Button'
 import './AlunoTurma.css'
 
@@ -77,7 +78,7 @@ function AlunoTurma() {
   return (
     <div className="container-form-turma">
       <h1>Cadastro de Turmas</h1>
-      <form onSubmit={handleSubmit} className="form-turma">
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="">Selecione a Turma *</label>
         <select
           className="select-form"
@@ -115,7 +116,8 @@ function AlunoTurma() {
           ))}
         </select>
         <Button texto="Enviar" />
-      </form>
+      </Form>
+
       <div className="turma__span-aviso">
         <span>Campos com o * são obrigatório!</span>
       </div>
