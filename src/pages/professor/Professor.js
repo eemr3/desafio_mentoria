@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import Form from '../../components/Form'
 import Button from '../../components/button/Button'
 import './Professor.css'
 
@@ -77,7 +78,7 @@ function Professor() {
   return (
     <div className="form-professor">
       <h1>Cadastro de Professores</h1>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="" className="label-professor">
           Professor *
         </label>
@@ -132,7 +133,63 @@ function Professor() {
         <div className="professor-span-aviso">
           <span>Campos com o * são obrigatório!</span>
         </div>
-      </form>
+      </Form>
+      {/* <form onSubmit={handleSubmit}>
+        <label htmlFor="" className="label-professor">
+          Professor *
+        </label>
+        <select
+          className="select-professor"
+          value={infoProf}
+          onChange={(e) => setInfoProf(e.target.value)}
+          data-testid="select-professor"
+        >
+          <option value="" hidden>
+            Selecione um Professor
+          </option>
+          {professores.map((professor) => (
+            <option
+              value={professor.nome}
+              key={professor.id}
+              data-testid="option-professor"
+            >
+              {professor.nome}
+            </option>
+          ))}
+        </select>
+        <div className="check-grup">
+          <h2>Slecione quais Turmas *</h2>
+          {turmas.map((item) => (
+            <div
+              className="checkbox-professor"
+              key={item.id}
+              data-testid="checkbox_id"
+            >
+              <input
+                name={item.turma}
+                id={item.turma}
+                type="checkbox"
+                checked={infoTurma.includes(item.turma)}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    // add
+                    setInfoTurma([...infoTurma, e.target.name])
+                  } else {
+                    // delete
+                    setInfoTurma(infoTurma.filter((x) => x !== e.target.name))
+                  }
+                }}
+              />
+              <label htmlFor={item.turma}>{item.turma}</label>
+            </div>
+          ))}
+        </div>
+
+        <Button texto="Enviar" />
+        <div className="professor-span-aviso">
+          <span>Campos com o * são obrigatório!</span>
+        </div>
+      </form> */}
       <div className="list-containerProfessor">
         <ul className="list-cardsProfessor">
           {valores.map((item, index) => (
